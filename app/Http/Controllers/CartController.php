@@ -35,7 +35,7 @@ class CartController extends Controller
                     '</h4>'.
                     ' <span class="item_price">Rs.'.$cart->product->product_price * $cart->total.'</span>'.
                     ' <span class="item_price">Qty:'.$cart->total.'</span>'.
-                    '  <button type="button" class="remove_btn"><i class="fal fa-times"></i></button>'.
+                    '  <button type="button" class="remove_btn" onclick="removeCart('.$cart->product_id.')"><i class="fal fa-times"></i></button>'.
                     '</div>'.
                     '</div>';
                 $total_produts += $cart->total;
@@ -73,7 +73,7 @@ class CartController extends Controller
                     '</h4>'.
                     ' <span class="item_price">Rs.'.$cart->product->product_price * $cart->total.'</span>'.
                     ' <span class="item_price">Qty:'.$cart->total.'</span>'.
-                    '  <button type="button" class="remove_btn"><i class="fal fa-times"></i></button>'.
+                    '  <button type="button" class="remove_btn" onclick="removeCart('.$cart->product_id.')"><i class="fal fa-times"></i></button>'.
                     '</div>'.
                     '</div>';
                 $total_produts += $cart->total;
@@ -83,6 +83,6 @@ class CartController extends Controller
         }
 
 
-        return response()->json(['message' => 'Failed!']);
+        return response()->json(['error'=> true, 'message' => 'Failed!']);
     }
 }

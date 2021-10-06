@@ -27,7 +27,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     background-repeat: no repeat;
     background-attachment: fixed;
 	height:800px;">
-		<a href="Home"> <h1 class="" style="font-weight:bold;color:#c7a17a;text-shadow:0 0 3px #fff, 0 0 5px #efefef;">BELLICIOUS BAKERY </h1> </a> 
+		<a href="Home"> <h1 class="" style="font-weight:bold;color:#c7a17a;text-shadow:0 0 3px #fff, 0 0 5px #efefef;">BELLICIOUS BAKERY </h1> </a>
         <h2 style="font-weight:bold;color:#c7a17a;text-shadow:0 0 3px #, 0 0 5px #;"> LOGIN NOW </h2>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
@@ -38,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <input class="text" type="password" name="password" placeholder="Password">
                     <div class="error" style="margin-left:1em;"><span class="error-text password_error" style="color:white;"></span></div>
 					<div class="alert alert-danger" role="alert" id="usernameerror">
-  						
+
 					</div>
 					<input type="submit" value="LOGIN">
 				</form>
@@ -83,7 +83,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								$('span.'+prefix+'_error').text(val[0]);
 							})
 						}else if(data.status == 2){
-							$('#usernameerror').text(data.msg2).show();    
+							$('#usernameerror').text(data.msg2).show();
                             }
 							if (data.redirect) {
 							// here you actually redirect to the new page
@@ -95,5 +95,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			$('#usernameerror').hide();
 		});
 	</script>
+    @include("layouts.script")
 </body>
 </html>

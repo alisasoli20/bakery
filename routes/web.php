@@ -21,30 +21,16 @@ Route::get('Home', [\App\Http\Controllers\MainController::class,"index"]);
 Route::get('menu', function () {
     return view('menu');
 });
-Route::get('aboutus', function () {
-    return view('about');
-});
-Route::get('aboutme', function () {
-    return view('about_2');
-});
+Route::get('aboutus', [\App\Http\Controllers\MainController::class,"aboutUs"]);
+Route::get('aboutme', [\App\Http\Controllers\MainController::class,"aboutUs2"]);
 Route::get('shop', function () {
     return view('shop');
 });
-Route::get('shop_details', function () {
-    return view('shop_details');
-});
-Route::get('menu', function () {
-    return view('menu');
-});
-Route::get('cart', function () {
-    return view('cart');
-});
-Route::get('checkout', function () {
-    return view('checkout');
-});
-Route::get('contact', function () {
-    return view('contact');
-});
+Route::get('shop_details', [\App\Http\Controllers\MainController::class,"shop_details"]);
+Route::get('menu', [\App\Http\Controllers\MainController::class,"menu"]);
+Route::get('cart', [\App\Http\Controllers\MainController::class,"cart"]);
+Route::get('checkout', [\App\Http\Controllers\CheckoutController::class,'checkout']);
+Route::get('contact', [\App\Http\Controllers\MainController::class,'contact']);
 Route::get('login', function () {
     return view('login');
 });
