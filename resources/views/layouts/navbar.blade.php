@@ -47,78 +47,53 @@
                             </ul>
                         </div>
 
-                        <ul class="header_btns_group ul_li_right">
+                        <ul class="header_btns_group ul_li_right" style="margin-right: 40px">
+                            @if(session()->has('user'))
+
                             <li>
                                 <button type="button" class="main_search_btn" data-bs-toggle="collapse" data-bs-target="#main_search_collapse" aria-expanded="false" aria-controls="main_search_collapse">
                                     <!-- <i class="fal fa-search"></i> -->
                                 </button>
                             </li>
-                            <li>
-                                <button type="button" class="cart_btn">
-
-                                    <i class="fal fa-shopping-bag badge-wrapper">
-                                        <span class='badge badge-danger' id="total_badge">{{ $total_products }}</span>
-                                    </i>
-                                    <!-- <small class="cart_counter">2</small> -->
-                                </button>
-                            </li>
-
-                            @if(session()->has('user'))
-                                <li >
-
-                                    <a style="background: #C7A17A!important" class="btn btn-secondary text-uppercase">Dashboard</a>
-                                </li>
-                                <li class="nav-item dropdown" style="background:#C7A17A!important;width:11em;height:50px;border-radius:5px;">
-                                    <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <div class="media align-items-center">
-                  <span class="avatar avatar-sm rounded-circle">
-                    <!-- <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg"> -->
-                  </span>
-                                            <div class="media-body  ml-2  d-none d-lg-block">
-                                                <span class="p-md-2"  style="font-weight:400;text-transform:uppercase;color:white;font-size:18px;">{{Session::get('user')['name']}}<i class="fas fa-arrow-down pl-3"></i> </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-menu  dropdown-menu-right ">
-                                        <div class="dropdown-header noti-title">
-                                            <h6 class="text-overflow m-0">Welcome!</h6>
-                                        </div>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ni ni-single-02"></i>
-                                            <span>My profile</span>
-                                        </a>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ni ni-settings-gear-65"></i>
-                                            <span>Settings</span>
-                                        </a>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ni ni-calendar-grid-58"></i>
-                                            <span>Activity</span>
-                                        </a>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ni ni-support-16"></i>
-                                            <span>Support</span>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a href="#!" class="dropdown-item">
-                                            <!-- <a class="btn" href="admin_logout" role="button">logout</a> -->
-                                            <span > <a class="btn" style="color:black;" href="logout" role="button"> Logout </a> </span>
-                                        </a>
+                                <li class="nav-item dropdown " >
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbar-list-4">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Dashboard</a>
+                                                    <a class="dropdown-item" href="{{ route("profile") }}">Edit Profile</a>
+                                                    <a class="dropdown-item" href="logout">Log Out</a>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </li>
-                            <!-- <li>
-                    <select class="form-select" style="height:50px;width:10em;color:black;border:2px solid #C7A17A" aria-label="Default select example">
-                        <option selected style="font-weight:bold;"> {{Session::get('user')['name']}} </option>
-                        <option value="">Profile</option>
-                        <option value="">Setting</option>
-                        <option value="">  <a href="{{ url('logout') }}"> logout </a> </option>
-                      </select>
-</li> -->
                             @else
                                 <li>
                                     <a class="btn btn_primary text-uppercase" href="login">Login</a>
                                 </li>
                             @endif
+
+
+
+
+                                <li>
+                                    <button type="button" class="cart_btn">
+
+                                        <i class="fal fa-shopping-bag badge-wrapper">
+                                            <span class='badge badge-danger' id="total_badge"></span>
+                                        </i>
+                                        <!-- <small class="cart_counter">2</small> -->
+                                    </button>
+                                </li>
+
+
                         </ul>
                     </nav>
                 </div>

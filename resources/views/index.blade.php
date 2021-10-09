@@ -437,7 +437,7 @@
                       </h3>
                       <div class="btns_group">
                         <span class="item_price bg_default_brown">RS.{{ $product->product_price }}</span>
-                        <button class="btn btn_border border_black text-uppercase" onclick="addToCart({{ $product->id }})">Add To Cart</button>
+                        <button class="btn btn_border border_black text-uppercase" onclick="addToCart({{ $product->id }}, 1)">Add To Cart</button>
                       </div>
                     </div>
                   </div>

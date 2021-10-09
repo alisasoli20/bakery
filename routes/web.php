@@ -41,6 +41,7 @@ Route::get('dashboard', function () {
     return view('loginuser_dashboard.dashboard');
 });
 Route::get('logout', function () {
+    \Illuminate\Support\Facades\Auth::logout();
     if(session()->has('user')){
         session()->pull('user');
     }
@@ -87,11 +88,14 @@ Route::post('/adminregister',[AdminController::class, 'adminregister'])->name('a
 Route::post("contact",[ContactController::class,'submitContact'])->name('contact');
 
 Route::post('add/cart',[\App\Http\Controllers\CartController::class,"addToCart"])->name("add.to.cart");
-Route::post('remove/cart',[\App\Http\Controllers\CartController::class,"removeFromCart"])->name("remove.from.cart");
+Route::delete('remove/cart',[\App\Http\Controllers\CartController::class,"removeFromCart"])->name("remove.from.cart");
+Route::get('load/cart/data',[\App\Http\Controllers\CartController::class,"cartLoadByAjax"])->name("load.cart.data");
 
 
 
-
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('profile' , [\App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+});
 
 
 

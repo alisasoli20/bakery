@@ -64,29 +64,40 @@
 									</tr>
 								</thead>
 								<tbody>
+                                @if(isset($carts))
+                                    @if(Cookie::get('shopping_cart'))
+                                        @php $total_price ="0" @endphp
+                                            @foreach ($carts as $data)
+									            <tr>
+                                                    <td>
+                                                        <div class="carttable_product_item">
+                                                            <div class="item_image">
+                                                                <img src="{{ asset("images/".$data["item_image"]) }}" alt="image_not_found">
+                                                            </div>
+                                                            <button type="button" class="remove_btn"><i class="fal fa-times"></i></button>
+                                                            <h3 class="item_title">{{ $data["item_name"] }}</h3>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="price_text1">RS.{{ $data["item_price"] }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="quantity_input">
+                                                            <form action="#">
+                                                                <button type="button" class="input_number_decrement">–</button>
+                                                                <input class="input_number" type="text" value="1">
+                                                                <button type="button" class="input_number_increment">+</button>
+                                                            </form>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="price_text2">RS.{{ $data["item_price"] }}</span>
+                                                    </td>
+								            	</tr>
+                                            @endforeach
+                                    @endif
+                                @endif
 
-									<tr>
-										<td>
-											<div class="carttable_product_item">
-												<div class="item_image">
-													<img src="assets/images/shop/img_01.png" alt="image_not_found">
-												</div>
-												<button type="button" class="remove_btn"><i class="fal fa-times"></i></button>
-												<h3 class="item_title">Bombay Coffee Cake</h3>
-											</div>
-										</td>
-										<td><span class="price_text1">RS300</span></td>
-										<td>
-											<div class="quantity_input">
-												<form action="#">
-													<button type="button" class="input_number_decrement">–</button>
-													<input class="input_number" type="text" value="1">
-													<button type="button" class="input_number_increment">+</button>
-												</form>
-											</div>
-										</td>
-										<td><span class="price_text2">RS300</span></td>
-									</tr>
 								</tbody>
 							</table>
 						</div>
