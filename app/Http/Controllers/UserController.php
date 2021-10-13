@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function profile(){
-        echo "Profile";
+        return view('profile');
     }
 }
